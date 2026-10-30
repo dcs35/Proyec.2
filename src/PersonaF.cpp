@@ -3,9 +3,9 @@
 using namespace std;
 PersonaF::PersonaF() : Cliente() {
 }
-PersonaFisica::PersonaFisica(string id, string nom, string tel, string corr): Cliente(id, nom, tel, corr) {
+PersonaF::PersonaF(string id, string nom, string tel, string corr): Cliente(id, nom, tel, corr) {
 }
-void PersonaFisica::mostrar() const {
+void PersonaF::mostrar() const {
     cout<<"************** CLIENTE: PERSONA FISICA *******************";
     Cliente::mostrar();
 }
