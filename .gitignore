@@ -3,3 +3,6 @@
 *.out
 .vscode/
 build/
+prueba*.exe
+programa.exe
+prueba_*.cpp
