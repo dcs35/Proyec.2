@@ -1,6 +1,6 @@
 #ifndef CENTRO_H
 #define CENTRO_H
-#include <string>
+#include <iostream>
 #include "Listas.h"
 using namespace std;
 
