@@ -12,12 +12,12 @@ Bodega::Bodega() {
     columnas = 0;
     matriz = nullptr;
 }
-Bodega::Bodega(string cod, string nom, int tip, int fil, int col) {
+Bodega::Bodega(string cod,string nom,int tip,int fil,int col) {
     codigo = cod;
     nombre = nom;
     tipo = tip;
     matriz = nullptr;
-    if (fil > 0 && col > 0) {
+    if (fil >0 && col > 0) {
         filas = fil;
         columnas = col;
         reservarMatriz();
@@ -31,13 +31,13 @@ Bodega::~Bodega() {
 }
 void Bodega::reservarMatriz() {
     matriz = new Celda*[filas];
-    for (int i = 0; i < filas; i++) {
+    for (int i=0; i<filas; i++) {
         matriz[i] = new Celda[columnas];
     }
 }
 void Bodega::liberarMatriz() {
     if (matriz != nullptr) {
-        for (int i = 0; i < filas; i++) {
+        for (int i=0; i<filas; i++) {
             delete[] matriz[i];
         }
         delete[] matriz;
@@ -67,7 +67,7 @@ string Bodega::nombreTipo(int t) {
         case 1: return "General";
         case 2: return "Fragil";
         case 3: return "Tecnologia";
-        case 4: return "Documentos";
+        case 4: return "documentos";
     }
     return "Desconocido";
 }
@@ -75,13 +75,13 @@ bool Bodega::tipoValido(int t) {
     return t >= 1 && t <= 4;
 }
 bool Bodega::datosValidos() const {
-    if (codigo == "" || nombre == "" || !tipoValido(tipo) || filas <= 0 || columnas <= 0 || matriz == nullptr) {
+    if (codigo == "" ||nombre == "" ||!tipoValido(tipo) ||filas <= 0 ||columnas <= 0 ||matriz == nullptr) {
         return false;
     }
     return true;
 }
 bool Bodega::posicionValida(int f, int c) const {
-    return matriz != nullptr && f >= 0 && f < filas && c >= 0 && c < columnas;
+    return matriz != nullptr && f >=0 && f < filas && c >=0 && c < columnas;
 }
 bool Bodega::estaLibre(int f, int c) const {
     if (!posicionValida(f, c)) {
@@ -90,13 +90,13 @@ bool Bodega::estaLibre(int f, int c) const {
     return matriz[f][c].estaLibre();
 }
 Paquete* Bodega::consultarPaquete(int f, int c) const {
-    if (!posicionValida(f, c)) {
+    if (!posicionValida(f,c)) {
         return nullptr;
     }
     return matriz[f][c].getPaquete();
 }
-bool Bodega::asignarPaquete(int f, int c, Paquete* p) {
-    if (p == nullptr || !posicionValida(f, c) || !matriz[f][c].estaLibre()) {
+bool Bodega::asignarPaquete(int f,int c, Paquete* p) {
+    if (p == nullptr || !posicionValida(f, c) ||!matriz[f][c].estaLibre()) {
         return false;
     }
     matriz[f][c].ocupar(p);
@@ -139,8 +139,8 @@ double Bodega::porcentajeDisponible() const {
     return ((double)celdasLibres() / totalCeldas()) * 100;
 }
 bool Bodega::primeraLibre(int& f, int& c) const {
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
+    for (int i=0; i<filas; i++) {
+        for (int j=0; j<columnas; j++) {
             if (matriz[i][j].estaLibre()) {
                 f = i;
                 c = j;
@@ -154,26 +154,24 @@ bool Bodega::estaVacia() const {
     return celdasOcupadas() == 0;
 }
 string Bodega::codigoCelda(int f, int c) const {
-    // Con indices de un solo digito: A-12. Con dos o mas digitos se usa coma: A-12,3
-    if (filas <= 10 && columnas <= 10) {
+    if (filas<=10 && columnas <=10) {
         return codigo + "-" + aTexto(f) + aTexto(c);
     }
     return codigo + "-" + aTexto(f) + "," + aTexto(c);
 }
 void Bodega::mostrar() const {
-    cout << "************* BODEGA *************" << endl;
-    cout << "Codigo: " << codigo << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Tipo: " << tipo << " - " << getNombreTipo() << endl;
-    cout << "Distribucion: " << filas << " filas x " << columnas << " columnas" << endl;
-    cout << "Celdas ocupadas: " << celdasOcupadas() << " de " << totalCeldas() << endl;
+    cout << "************* BODEGA *************" <<endl;
+    cout << "Codigo: " << codigo <<endl;
+    cout << "Nombre: " << nombre <<endl;
+    cout << "Tipo: " << tipo << " - " << getNombreTipo() <<endl;
+    cout << "Distribucion: " << filas << " filas x " << columnas << " columnas" <<endl;
+    cout << "Celdas ocupadas: " << celdasOcupadas() << " de " << totalCeldas() <<endl;
 }
 void Bodega::mostrarMatriz() const {
     if (matriz == nullptr) {
-        cout << "La bodega no tiene matriz de almacenamiento." << endl;
+        cout << "La bodega no tiene matriz de almacenamiento." <<endl;
         return;
     }
-    // Calcular el ancho necesario para las celdas
     int ancho = 7;
     for (int i = 0; i < filas; i++) {
         for (int j = 0; j < columnas; j++) {
@@ -211,9 +209,9 @@ void Bodega::mostrarMatriz() const {
         }
         cout << endl;
     }
-    cout << separador << endl;
+    cout << separador <<endl;
     cout << "Total de celdas: " << totalCeldas() << " | Ocupadas: " << celdasOcupadas()
-         << " | Libres: " << celdasLibres() << " | Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" << endl;
+         << " | Libres: " << celdasLibres() << " | Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" <<endl;
 }
 void Bodega::mostrarCeldasLibres() const {
     int contador = 0;
@@ -236,5 +234,5 @@ void Bodega::mostrarOcupacion() const {
          << " Total: " << rellenar(aTexto(totalCeldas()), 5)
          << " Ocupadas: " << rellenar(aTexto(celdasOcupadas()), 5)
          << " Disponibles: " << rellenar(aTexto(celdasLibres()), 5)
-         << " Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" << endl;
+         << " Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" <<endl;
 }
