@@ -1,6 +1,7 @@
 #include "Utilidades.h"
 #include <sstream>
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 string aTexto(int valor) {
@@ -123,13 +124,5 @@ string nombreEstadoDespacho(int estado) {
 }
 
 void limpiarPantalla() {
-    cout << "\033[2J\033[3J\033[H";
-    cout.flush();
-}
-
-void pausar() {
-    cout << "\nPresione Enter para continuar...";
-    cout.flush();
-    string linea;
-    getline(cin, linea);
+    system("cls");
 }
