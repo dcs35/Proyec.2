@@ -12,12 +12,14 @@ Bodega::Bodega() {
     columnas = 0;
     matriz = nullptr;
 }
+
 Bodega::Bodega(string cod, string nom, int tip, int fil, int col) {
     codigo = cod;
     nombre = nom;
     tipo = tip;
     matriz = nullptr;
-    if (fil > 0 && col > 0) {
+
+    if (fil>0 && col>0) {
         filas = fil;
         columnas = col;
         reservarMatriz();
