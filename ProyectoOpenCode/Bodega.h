@@ -15,8 +15,6 @@ private:
 
     void reservarMatriz();
     void liberarMatriz();
-    Bodega(const Bodega&);
-    Bodega& operator=(const Bodega&);
 public:
     Bodega();
     Bodega(string, string, int, int, int);
