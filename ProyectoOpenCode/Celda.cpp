@@ -1,21 +1,21 @@
 #include "Celda.h"
 
-Celda::Celda() {
+Celda::Celda(){
     paquete = nullptr;
 }
 
-bool Celda::estaLibre() const {
+bool Celda::estaLibre() const{
     return paquete == nullptr;
 }
 
-Paquete* Celda::getPaquete() const {
+Paquete* Celda::getPaquete() const{
     return paquete;
 }
 
-void Celda::ocupar(Paquete* p) {
+void Celda::ocupar(Paquete* p){
     paquete = p;
 }
 
-void Celda::liberar() {
+void Celda::liberar(){
     paquete = nullptr;
 }
