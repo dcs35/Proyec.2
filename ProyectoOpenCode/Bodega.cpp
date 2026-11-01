@@ -5,27 +5,27 @@
 using namespace std;
 
 Bodega::Bodega() {
-    codigo = "";
-    nombre = "";
-    tipo = 0;
-    filas = 0;
-    columnas = 0;
-    matriz = nullptr;
+    codigo="";
+    nombre="";
+    tipo=0;
+    filas=0;
+    columnas=0;
+    matriz=nullptr;
 }
 
 Bodega::Bodega(string cod, string nom, int tip, int fil, int col) {
-    codigo = cod;
-    nombre = nom;
-    tipo = tip;
-    matriz = nullptr;
+    codigo=cod;
+    nombre=nom;
+    tipo=tip;
+    matriz=nullptr;
 
     if (fil>0 && col>0) {
-        filas = fil;
-        columnas = col;
+        filas=fil;
+        columnas=col;
         reservarMatriz();
     } else {
-        filas = 0;
-        columnas = 0;
+        filas=0;
+        columnas=0;
     }
 }
 Bodega::~Bodega() {
@@ -116,8 +116,8 @@ int Bodega::totalCeldas() const {
 }
 int Bodega::celdasOcupadas() const {
     int ocupadas = 0;
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
+    for (int i=0; i<filas; i++) {
+        for (int j=0; j<columnas; j++) {
             if (!matriz[i][j].estaLibre()) {
                 ocupadas++;
             }
@@ -141,14 +141,14 @@ double Bodega::porcentajeDisponible() const {
     return ((double)celdasLibres() / totalCeldas()) * 100;
 }
 bool Bodega::primeraLibre(int& f, int& c) const {
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
-            if (matriz[i][j].estaLibre()) {
-                f = i;
-                c = j;
-                return true;
-            }
-        }
+    for (int i=0; i<filas; i++) {
+        for (int j=0; j<columnas; j++) {
+        if (matriz[i][j].estaLibre()) {
+            f = i;
+            c = j;
+            return true;
+          }
+       }
     }
     return false;
 }
@@ -156,27 +156,27 @@ bool Bodega::estaVacia() const {
     return celdasOcupadas() == 0;
 }
 string Bodega::codigoCelda(int f, int c) const {
-    if (filas <= 10 && columnas <= 10) {
+    if (filas<=10 && columnas<=10) {
         return codigo + "-" + aTexto(f) + aTexto(c);
     }
     return codigo + "-" + aTexto(f) + "," + aTexto(c);
 }
 void Bodega::mostrar() const {
-    cout << "************* BODEGA *************" << endl;
-    cout << "Codigo: " << codigo << endl;
-    cout << "Nombre: " << nombre << endl;
-    cout << "Tipo: " << tipo << " - " << getNombreTipo() << endl;
-    cout << "Distribucion: " << filas << " filas x " << columnas << " columnas" << endl;
-    cout << "Celdas ocupadas: " << celdasOcupadas() << " de " << totalCeldas() << endl;
+    cout << "************* BODEGA *************" <<endl;
+    cout << "Codigo: " << codigo <<endl;
+    cout << "Nombre: " << nombre <<endl;
+    cout << "Tipo: " << tipo << " - " << getNombreTipo() <<endl;
+    cout << "Distribucion: " << filas << " filas x " << columnas << " columnas" <<endl;
+    cout << "Celdas ocupadas: " << celdasOcupadas() << " de " << totalCeldas() <<endl;
 }
 void Bodega::mostrarMatriz() const {
     if (matriz == nullptr) {
-        cout << "La bodega no tiene matriz de almacenamiento." << endl;
+        cout << "La bodega no tiene matriz de almacenamiento." <<endl;
         return;
     }
     int ancho = 7;
-    for (int i = 0; i < filas; i++) {
-        for (int j = 0; j < columnas; j++) {
+    for (int i=0; i<filas; i++) {
+        for (int j=0; j<columnas; j++) {
             int largoCodigo = (int)codigoCelda(i, j).length();
             if (largoCodigo > ancho) {
                 ancho = largoCodigo;
@@ -191,29 +191,29 @@ void Bodega::mostrarMatriz() const {
     }
     ancho = ancho + 2;
     string separador = "+";
-    for (int j = 0; j < columnas; j++) {
+    for (int j=0; j<columnas; j++) {
         separador += repetir('-', ancho) + "+";
     }
-    cout << "Bodega " << codigo << " - " << nombre << " (" << getNombreTipo() << ")  [LIBRE = disponible, [PKxxx] = ocupada]" << endl;
+    cout<< "Bodega " << codigo << " - " <<nombre<< " (" << getNombreTipo() << ")  [LIBRE = disponible, [PKxxx] = ocupada]" <<endl;
     for (int i = 0; i < filas; i++) {
-        cout << separador << endl;
+        cout << separador <<endl;
         cout << "|";
-        for (int j = 0; j < columnas; j++) {
+        for (int j =0; j<columnas; j++) {
             cout << " " << rellenar(codigoCelda(i, j), ancho - 1) << "|";
         }
         cout << endl << "|";
-        for (int j = 0; j < columnas; j++) {
+        for (int j=0; j<columnas; j++) {
             string contenido = "LIBRE";
             if (!matriz[i][j].estaLibre()) {
                 contenido = "[" + matriz[i][j].getPaquete()->getCodigo() + "]";
             }
             cout << " " << rellenar(contenido, ancho - 1) << "|";
         }
-        cout << endl;
+        cout <<endl;
     }
-    cout << separador << endl;
-    cout << "Total de celdas: " << totalCeldas() << " | Ocupadas: " << celdasOcupadas()
-         << " | Libres: " << celdasLibres() << " | Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" << endl;
+    cout<< separador <<endl;
+    cout<< "Total de celdas: " << totalCeldas() << " | Ocupadas: " << celdasOcupadas()
+         << " | Libres: " << celdasLibres() << " | Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" <<endl;
 }
 void Bodega::mostrarCeldasLibres() const {
     int contador = 0;
@@ -222,19 +222,19 @@ void Bodega::mostrarCeldasLibres() const {
         for (int j = 0; j < columnas; j++) {
             if (matriz[i][j].estaLibre()) {
                 if (contador % 10 == 0) {
-                    cout << endl << "   ";
+                    cout <<endl << "   ";
                 }
                 cout << codigoCelda(i, j) << "  ";
                 contador++;
             }
         }
     }
-    cout << endl;
+    cout<<endl;
 }
 void Bodega::mostrarOcupacion() const {
     cout << "  Bodega " << rellenar(codigo, 6) << " " << rellenar(nombre, 24)
          << " Total: " << rellenar(aTexto(totalCeldas()), 5)
          << " Ocupadas: " << rellenar(aTexto(celdasOcupadas()), 5)
          << " Disponibles: " << rellenar(aTexto(celdasLibres()), 5)
-         << " Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" << endl;
+         << " Ocupacion: " << aTextoDecimal(porcentajeOcupacion()) << "%" <<endl;
 }
