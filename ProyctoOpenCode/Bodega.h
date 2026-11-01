@@ -1,8 +1,8 @@
 #ifndef BODEGA_H
 #define BODEGA_H
-#include <string>
-#include "Celda.h"
 using namespace std;
+#include <iostream>
+#include "Celda.h"
 
 class Bodega {
 private:
