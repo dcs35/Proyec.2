@@ -5,8 +5,8 @@
 using namespace std;
 
 Bodega::Bodega() {
-    codigo = " ";
-    nombre = " ";
+    codigo = "sin codigo";
+    nombre = "sin nombre";
     tipo = 0;
     filas = 0;
     columnas = 0;
