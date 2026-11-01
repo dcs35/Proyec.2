@@ -4,11 +4,11 @@
 using namespace std;
 
 Centro::Centro() {
-    codigo = "";
-    nombre = "";
-    provincia = "";
-    direccion = "";
-    telefono = "";
+    codigo = "Codigo sin declarar";
+    nombre = "Nombre sin declarar";
+    provincia = "Provincia sin declarar";
+    direccion = "Direccion sin definir";
+    telefono = "Telefono sin declarar";
     clientes = new ListaClientes();
     colaboradores = new ListaColaboradores();
     bodegas = new ListaBodegas();
