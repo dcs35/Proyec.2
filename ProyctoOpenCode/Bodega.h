@@ -8,10 +8,10 @@ class Bodega {
 private:
     string codigo;
     string nombre;
-    int tipo;          // 1 General, 2 Fragil, 3 Tecnologia, 4 Documentos
+    int tipo;
     int filas;
     int columnas;
-    Celda** matriz;    // matriz dinamica de celdas
+    Celda** matriz;
 
     void reservarMatriz();
     void liberarMatriz();
