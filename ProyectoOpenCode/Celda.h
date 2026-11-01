@@ -3,7 +3,7 @@
 
 class Paquete;
 
-class Celda {
+class Celda{
 private:
     Paquete* paquete;
 public:
