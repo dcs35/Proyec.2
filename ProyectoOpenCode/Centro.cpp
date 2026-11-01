@@ -501,7 +501,7 @@ Despacho* Centro::buscarDespachoPorPaquete(Paquete* paquete) const {
 }
 
 bool Centro::finalizarDespacho(string codigoDespacho, string fecha) {
-    Despacho* despacho = buscarDespacho(codigoDespacho);
+    Despacho* despacho=buscarDespacho(codigoDespacho);
     if (despacho == nullptr) {
         cout << "Despacho no encontrado." << endl;
         return false;
@@ -642,7 +642,7 @@ bool Centro::resolverIncidencia(string codigoPaquete, int nuevoEstado, string fe
 
 Bodega* Centro::recomendarBodega(int categoria) const {
     Bodega* mejor = nullptr;
-    for (int i = 0; i < bodegas->tamanio(); i++) {
+    for (int i=0; i<bodegas->tamanio(); i++) {
         Bodega* b = bodegas->obtener(i);
         if (b->getTipo() == categoria && b->celdasLibres() > 0) {
             if (mejor == nullptr || b->porcentajeDisponible() > mejor->porcentajeDisponible()) {
@@ -704,12 +704,12 @@ void Centro::reporteClientesPorEnvios() const {
         arreglo[i] = clientes->obtener(i);
         conteo[i] = 0;
     }
-    for (int i = 0; i < despachos->tamanio(); i++) {
+    for (int i=0; i<despachos->tamanio(); i++) {
         Despacho* d = despachos->obtener(i);
         if (d->getEstado() != 2) {
             continue;
         }
-        for (int j = 0; j < n; j++) {
+        for (int j=0; j<n; j++) {
             if (arreglo[j] == d->getCliente()) {
                 conteo[j]++;
                 break;
@@ -739,7 +739,7 @@ void Centro::reporteClientesPorEnvios() const {
 }
 
 void Centro::reporteBitacoraPaquete(string codigoPaquete) const {
-    Paquete* paquete = buscarPaquete(codigoPaquete);
+    Paquete* paquete=buscarPaquete(codigoPaquete);
     if (paquete == nullptr) {
         cout << "Paquete no encontrado." << endl;
         return;
@@ -805,12 +805,12 @@ void Centro::reporteDespachosPorColaborador(string identificacion) const {
             cout << "Codigo: " << rellenar(d->getCodigo(), 10)
                  << " Paquete: " << rellenar(d->getPaquete()->getCodigo(), 10)
                  << " Fecha: " << rellenar(d->getFecha(), 12)
-                 << " Estado: " << nombreEstadoDespacho(d->getEstado()) << endl;
+                 << " Estado: " << nombreEstadoDespacho(d->getEstado()) <<endl;
             hay = true;
         }
     }
     if (!hay) {
-        cout << "   (Sin despachos)" << endl;
+        cout << "   (Sin despachos)" <<endl;
     }
 }
 
