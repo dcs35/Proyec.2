@@ -17,7 +17,6 @@ private:
     ListaPaquetes* paquetes;
     ListaSolicitudes* solicitudes;
     ListaDespachos* despachos;
-
 public:
     Centro();
     Centro(string, string, string, string, string);
@@ -34,52 +33,43 @@ public:
     bool datosValidos() const;
     void mostrar() const;
     bool tieneDatosAsociados() const;
-
     ListaClientes* getClientes() const;
     ListaColaboradores* getColaboradores() const;
     ListaBodegas* getBodegas() const;
     ListaPaquetes* getPaquetes() const;
     ListaSolicitudes* getSolicitudes() const;
     ListaDespachos* getDespachos() const;
-
     bool registrarCliente(Cliente*);
     Cliente* buscarCliente(string) const;
     bool eliminarCliente(string);
     void mostrarClientes() const;
-
     bool registrarColaborador(Colaborador*);
     Colaborador* buscarColaborador(string) const;
     bool eliminarColaborador(string);
     void mostrarColaboradores() const;
-
     bool registrarBodega(Bodega*);
     Bodega* buscarBodega(string) const;
     bool eliminarBodega(string);
     void mostrarBodegas() const;
     void mostrarMatrices() const;
-
     bool registrarPaquete(Paquete*);
     Paquete* buscarPaquete(string) const;
     bool eliminarPaquete(string);
     void mostrarPaquetes() const;
-
     bool crearSolicitud(Solicitud*);
     Solicitud* buscarSolicitud(string) const;
     bool aprobarSolicitud(string, string, string, string);
     bool rechazarSolicitud(string);
     bool anularSolicitud(string);
     void mostrarSolicitudes() const;
-
     Despacho* buscarDespacho(string) const;
     Despacho* buscarDespachoPorPaquete(Paquete*) const;
     bool finalizarDespacho(string, string);
     void mostrarDespachos() const;
-
     bool almacenarPaquete(string, string, int, int, string, Colaborador*);
     bool reubicarPaquete(string, string, int, int);
     bool resolverIncidencia(string, int, string, Colaborador*);
     Bodega* recomendarBodega(int) const;
-
     void reporteHistorialCliente(string) const;
     void reporteClientesPorEnvios() const;
     void reporteBitacoraPaquete(string) const;
