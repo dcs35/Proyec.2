@@ -1,6 +1,5 @@
 #ifndef LISTAS_H
 #define LISTAS_H
-
 #include "Cliente.h"
 #include "Colaborador.h"
 #include "Bodega.h"
@@ -13,5 +12,4 @@
 #include "ListaPaquetes.h"
 #include "ListaSolicitudes.h"
 #include "ListaDespachos.h"
-
 #endif
