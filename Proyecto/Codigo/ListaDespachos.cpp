@@ -68,9 +68,9 @@ bool ListaDespachos::eliminar(Despacho* dato){
         if(actual->dato==dato){
             if(anterior==nullptr){
                 primero=actual->siguiente;
-            }else{
-                anterior->siguiente=actual->siguiente;
-            }
+         }else{
+              anterior->siguiente=actual->siguiente;
+       }
             delete actual;
             cantidad--;
             return true;
