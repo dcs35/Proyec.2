@@ -4,7 +4,7 @@
 #include "Celda.h"
 using namespace std;
 
-class Bodega {
+class Bodega{
 private:
     string codigo;
     string nombre;
@@ -12,7 +12,6 @@ private:
     int filas;
     int columnas;
     Celda** matriz;
-
     void reservarMatriz();
     void liberarMatriz();
 public:
