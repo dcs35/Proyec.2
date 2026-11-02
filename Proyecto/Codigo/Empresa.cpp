@@ -5,41 +5,40 @@ Empresa::Empresa(): Cliente() {
     actividadEconomica="";
     porcentajeDescuento=0;
 }
-Empresa::Empresa(string id, string nom, string tel, string corr, string actividad, double descuento): Cliente(id, nom, tel, corr) {
+Empresa::Empresa(string id, string nom, string tel, string corr, string actividad, double descuento): Cliente(id, nom, tel, corr){
     actividadEconomica=actividad;
 
-    if (descuento >= 0 && descuento <= 100) {
+    if (descuento >= 0 && descuento <= 100){
         porcentajeDescuento=descuento;
     } else {
       porcentajeDescuento=0;
     }
 }
-string Empresa::getActividadEconomica() const {
+string Empresa::getActividadEconomica() const{
     return actividadEconomica;
 }
-double Empresa::getPorcentajeDescuento() const {
+double Empresa::getPorcentajeDescuento() const{
     return porcentajeDescuento;
 }
-void Empresa::setActividadEconomica(string actividad) {
+void Empresa::setActividadEconomica(string actividad){
     actividadEconomica=actividad;
 }
-bool Empresa::setPorcentajeDescuento(double descuento) {
-    if (descuento >= 0 && descuento <= 100) {
+bool Empresa::setPorcentajeDescuento(double descuento){
+    if (descuento >= 0 && descuento <= 100){
         porcentajeDescuento = descuento;
         return true;
     }
     return false;
 }
-bool Empresa::datosValidos() const {
+bool Empresa::datosValidos() const{
     return Cliente::datosValidos() && actividadEconomica != "";
 }
-double Empresa::getDescuento() const {
+double Empresa::getDescuento() const{
     return porcentajeDescuento;
 }
-void Empresa::mostrar() const {
+void Empresa::mostrar() const{
     cout << "*********** EMPRESA ************";
     Cliente::mostrar();
     cout<<"Actividad economica: "<<actividadEconomica<<endl;
-
     cout<<"Descuento autorizado: "<<porcentajeDescuento<<"%"<<endl;
 }
