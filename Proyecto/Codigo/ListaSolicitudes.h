@@ -1,25 +1,21 @@
 #ifndef LISTA_SOLICITUDES_H
 #define LISTA_SOLICITUDES_H
-
 class Solicitud;
-
-class ListaSolicitudes {
+class ListaSolicitudes{
 private:
     struct Nodo {
         Solicitud* dato;
         Nodo* siguiente;
-        Nodo(Solicitud* d) {
-            dato = d;
-            siguiente = nullptr;
+        Nodo(Solicitud* d){
+            dato=d;
+            siguiente=nullptr;
         }
     };
     Nodo* primero;
     int cantidad;
-
 public:
     ListaSolicitudes();
     ~ListaSolicitudes();
-
     bool agregar(Solicitud* dato);
     bool estaVacia() const;
     int tamanio() const;
@@ -28,5 +24,4 @@ public:
     bool eliminar(Solicitud* dato);
     void mostrar() const;
 };
-
 #endif
