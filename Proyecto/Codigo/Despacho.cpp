@@ -21,9 +21,8 @@ Despacho::Despacho() {
     estado = 1;
 }
 
-Despacho::Despacho(string cod, Solicitud* sol, Paquete* paq, Cliente* cli,
-                   Colaborador* resp, Centro* origen, string dest,
-                   string fec, string hor) {
+Despacho::Despacho(string cod, Solicitud* sol, Paquete* paq, Cliente* cli, Colaborador* resp, Centro* origen, string dest,
+    string fec, string hor) {
     codigo = cod;
     solicitud = sol;
     paquete = paq;
