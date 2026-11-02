@@ -2,46 +2,46 @@
 #include <iostream>
 using namespace std;
 
-Colaborador::Colaborador() {
+Colaborador::Colaborador(){
     identificacion="";
     nombre="";
     fechaIngreso="";
     puesto="";
 }
-Colaborador::Colaborador(string id, string nom,string fecha, string pue) {
+Colaborador::Colaborador(string id, string nom,string fecha, string pue){
     identificacion=id;
     nombre=nom;
     fechaIngreso=fecha;
     puesto=pue;
 }
-string Colaborador::getIdentificacion() const {
+string Colaborador::getIdentificacion() const{
     return identificacion;
 }
-string Colaborador::getNombre() const {
+string Colaborador::getNombre() const{
     return nombre;
 }
-string Colaborador::getFechaIngreso() const {
+string Colaborador::getFechaIngreso() const{
     return fechaIngreso;
 }
-string Colaborador::getPuesto() const {
+string Colaborador::getPuesto() const{
     return puesto;
 }
-void Colaborador::setNombre(string nom) {
+void Colaborador::setNombre(string nom){
     nombre=nom;
 }
-void Colaborador::setFechaIngreso(string fecha) {
+void Colaborador::setFechaIngreso(string fecha){
     fechaIngreso=fecha;
 }
-void Colaborador::setPuesto(string pue) {
+void Colaborador::setPuesto(string pue){
     puesto=pue;
 }
-bool Colaborador::datosValidos() const {
-    if (identificacion == "" ||nombre == "" || fechaIngreso == "" || puesto == "") {
+bool Colaborador::datosValidos() const{
+    if (identificacion == ""||nombre == ""||fechaIngreso == ""||puesto == ""){
         return false;
     }
     return true;
 }
-void Colaborador::mostrar() const {
+void Colaborador::mostrar() const{
     cout<<"************* DATOS DEL COLABORADOR ***********";
     cout<<"Identificacion: "<< identificacion<<endl;
     cout<<"Nombre completo: "<<nombre<<endl;
