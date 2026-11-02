@@ -1,6 +1,5 @@
 #ifndef PAQUETE_H
 #define PAQUETE_H
-
 #include <string>
 #include "ListaBitacora.h"
 using namespace std;
@@ -9,7 +8,6 @@ class Cliente;
 class Centro;
 class Bodega;
 class Colaborador;
-
 class Paquete {
 private:
     string codigo;
@@ -23,7 +21,6 @@ private:
     int fila;
     int columna;
     ListaBitacora bitacora;
-
 public:
     Paquete();
     Paquete(string, string, double, int, Cliente*, Centro*);
@@ -51,5 +48,4 @@ public:
     void mostrar() const;
     void mostrarBitacora() const;
 };
-
 #endif
