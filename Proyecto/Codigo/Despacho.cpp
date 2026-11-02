@@ -60,34 +60,34 @@ bool Despacho::finalizar() {
 }
 
 void Despacho::mostrar() const {
-    cout << "************* DESPACHO *************" << endl;
-    cout << "Codigo: " << codigo << endl;
-    cout << "Solicitud: ";
+    cout<< "************* DESPACHO *************" <<endl;
+    cout<< "Codigo: " << codigo <<endl;
+    cout<< "Solicitud: ";
     if (solicitud != nullptr) {
-        cout << solicitud->getCodigo() << endl;
+        cout<< solicitud->getCodigo() <<endl;
     } else {
-        cout << "(sin solicitud)" << endl;
+        cout<< "sin solicitud" <<endl;
     }
 
     cout << "Paquete: ";
     if (paquete != nullptr) {
-        cout << paquete->getCodigo() << endl;
+        cout<< paquete->getCodigo() <<endl;
     } else {
-        cout << "(sin paquete)" << endl;
+        cout<< "(sin paquete)" <<endl;
     }
 
     cout << "Cliente: ";
     if (cliente != nullptr) {
-        cout << cliente->getNombre() << endl;
+        cout<< cliente->getNombre() <<endl;
     } else {
-        cout << "(sin cliente)" << endl;
+        cout<< "sin cliente" <<endl;
     }
 
-    cout << "Responsable: ";
+    cout<< "Responsable: ";
     if (responsable != nullptr) {
-        cout << responsable->getNombre() << endl;
+        cout<< responsable->getNombre() <<endl;
     } else {
-        cout << "(sin responsable)" << endl;
+        cout<< "sin responsable" <<endl;
     }
 
     cout << "Centro origen: ";
