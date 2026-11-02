@@ -1,31 +1,30 @@
 #include "ListaBodegas.h"
 #include "Bodega.h"
 
-ListaBodegas::ListaBodegas() {
+ListaBodegas::ListaBodegas(){
     primero = nullptr;
     cantidad = 0;
 }
-
-ListaBodegas::~ListaBodegas() {
+ListaBodegas::~ListaBodegas(){
     Nodo* actual = primero;
-    while (actual != nullptr) {
+    while (actual != nullptr){
         Nodo* temporal = actual;
         actual = actual->siguiente;
         delete temporal;
     }
     primero = nullptr;
 }
-
-bool ListaBodegas::agregar(Bodega* dato) {
-    if (dato == nullptr) {
+bool ListaBodegas::agregar(Bodega* dato){
+    if (dato == nullptr){
         return false;
     }
     Nodo* nuevo = new Nodo(dato);
-    if (primero == nullptr) {
+    if (primero == nullptr){
+        
         primero = nuevo;
     } else {
         Nodo* actual = primero;
-        while (actual->siguiente != nullptr) {
+        while (actual->siguiente != nullptr){
             actual = actual->siguiente;
         }
         actual->siguiente = nuevo;
@@ -33,23 +32,20 @@ bool ListaBodegas::agregar(Bodega* dato) {
     cantidad++;
     return true;
 }
-
-bool ListaBodegas::estaVacia() const {
+bool ListaBodegas::estaVacia() const{
     return primero == nullptr;
 }
-
-int ListaBodegas::tamanio() const {
+int ListaBodegas::tamanio() const{
     return cantidad;
 }
-
-Bodega* ListaBodegas::obtener(int indice) const {
-    if (indice < 0 || indice >= cantidad) {
+Bodega* ListaBodegas::obtener(int indice) const{
+    if (indice < 0 || indice >= cantidad){
         return nullptr;
     }
     Nodo* actual = primero;
     int i = 0;
-    while (actual != nullptr) {
-        if (i == indice) {
+    while (actual != nullptr){
+        if (i == indice){
             return actual->dato;
         }
         actual = actual->siguiente;
@@ -57,24 +53,22 @@ Bodega* ListaBodegas::obtener(int indice) const {
     }
     return nullptr;
 }
-
-bool ListaBodegas::contiene(Bodega* dato) const {
+bool ListaBodegas::contiene(Bodega* dato) const{
     Nodo* actual = primero;
-    while (actual != nullptr) {
-        if (actual->dato == dato) {
+    while (actual != nullptr){
+        if (actual->dato == dato){
             return true;
         }
         actual = actual->siguiente;
     }
     return false;
 }
-
-bool ListaBodegas::eliminar(Bodega* dato) {
+bool ListaBodegas::eliminar(Bodega* dato){
     Nodo* actual = primero;
     Nodo* anterior = nullptr;
-    while (actual != nullptr) {
-        if (actual->dato == dato) {
-            if (anterior == nullptr) {
+    while (actual != nullptr){
+        if (actual->dato == dato){
+            if (anterior == nullptr){
                 primero = actual->siguiente;
             } else {
                 anterior->siguiente = actual->siguiente;
@@ -88,10 +82,9 @@ bool ListaBodegas::eliminar(Bodega* dato) {
     }
     return false;
 }
-
-void ListaBodegas::mostrar() const {
+void ListaBodegas::mostrar() const{
     Nodo* actual = primero;
-    while (actual != nullptr) {
+    while (actual != nullptr){
         actual->dato->mostrar();
         actual = actual->siguiente;
     }
