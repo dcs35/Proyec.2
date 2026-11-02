@@ -69,7 +69,8 @@ bool ListaPaquetes::eliminar(Paquete* dato){
         if(actual->dato==dato){
             if(anterior==nullptr){
                 primero=actual->siguiente;
-            }else{
+            }
+        else{
                 anterior->siguiente=actual->siguiente;
             }
             delete actual;
