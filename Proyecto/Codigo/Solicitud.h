@@ -7,8 +7,7 @@ class Cliente;
 class Paquete;
 class Colaborador;
 class Centro;
-
-class Solicitud {
+class Solicitud{
 private:
     string codigo;
     Cliente* cliente;
@@ -19,9 +18,7 @@ private:
     string fecha;
     double costoEstimado;
     int estado;
-
     static double tarifas[4];
-
 public:
     Solicitud();
     Solicitud(string, Cliente*, Paquete*, Colaborador*, Centro*, string, string);
