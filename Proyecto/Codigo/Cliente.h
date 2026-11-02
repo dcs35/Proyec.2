@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-class Cliente {
+class Cliente{
 private:
     string identificacion;
     string nombre;
