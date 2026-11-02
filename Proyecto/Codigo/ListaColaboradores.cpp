@@ -74,18 +74,18 @@ bool ListaColaboradores::eliminar(Colaborador* dato) {
     Nodo* anterior = nullptr;
     while (actual != nullptr) {
         if (actual->dato == dato) {
-            if (anterior == nullptr) {
-                primero = actual->siguiente;
-            } else {
-                anterior->siguiente = actual->siguiente;
-            }
-            delete actual;
-            cantidad--;
-            return true;
+        if (anterior == nullptr) {
+           primero = actual->siguiente;
+         } else {
+             anterior->siguiente = actual->siguiente;
         }
-        anterior = actual;
-        actual = actual->siguiente;
+          delete actual;
+          cantidad--;
+          return true;
     }
+    anterior = actual;
+    actual = actual->siguiente;
+}
     return false;
 }
 
