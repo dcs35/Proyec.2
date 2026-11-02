@@ -8,7 +8,6 @@ class Paquete;
 class Cliente;
 class Colaborador;
 class Centro;
-
 class Despacho {
 private:
     string codigo;
@@ -21,7 +20,6 @@ private:
     string fecha;
     string hora;
     int estado;
-
 public:
     Despacho();
     Despacho(string, Solicitud*, Paquete*, Cliente*, Colaborador*, Centro*, string, string, string);
