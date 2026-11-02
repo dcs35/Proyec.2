@@ -48,20 +48,19 @@ bool ListaBitacora::contieneColaborador(Colaborador* colaborador) const {
 
 void ListaBitacora::mostrar() const {
     if (primero == nullptr) {
-        cout << "sin registros en la bitacora" << endl;
+        cout<< "sin registros en la bitacora" <<endl;
         return;
     }
     cout << "   " << rellenar("Estado anterior", 20) << rellenar("Nuevo estado", 20)
-         << rellenar("Fecha", 14) << "Responsable" << endl;
+         << rellenar("Fecha", 14) << "Responsable" <<endl;
     RegistroBitacora* actual = primero;
     while (actual != nullptr) {
         string nombreResponsable = "sin responsable";
         if (actual->responsable != nullptr) {
             nombreResponsable = actual->responsable->getNombre();
         }
-        cout << "   " << rellenar(nombreEstadoPaquete(actual->estadoAnterior), 20)
-             << rellenar(nombreEstadoPaquete(actual->estadoNuevo), 20)
-             << rellenar(actual->fecha, 14) << nombreResponsable << endl;
+        cout<< "   " << rellenar(nombreEstadoPaquete(actual->estadoAnterior), 20)<< rellenar(nombreEstadoPaquete(actual->estadoNuevo), 20)
+        << rellenar(actual->fecha, 14) << nombreResponsable <<endl;
         actual = actual->siguiente;
     }
 }
